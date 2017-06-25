@@ -1,0 +1,47 @@
+package at.jku.ce.cep.engine.model
+
+/**
+ * Atomic events
+ * 
+ * Generated sources in packages:
+ * -atomic event beans:				*.events
+ * -atomic event pattern classes:	*.patterns.atomic
+ * 
+ */
+ 
+ /** Events for:
+  * 
+  * GPS: gps position incoming
+  * W_CON: connection to WLAN occurred
+  * W_DISCON: disconnection from WLAN occurred
+  * TIME: time event occurred
+  */
+atomicEvent GPS
+atomicEvent W_CON
+atomicEvent W_DISCON
+atomicEvent TIME
+
+/**
+ * Complex event patterns
+ * 
+ * Generated sources in packages:
+ * -complex event pattern classes:	*.patterns.complex
+ * -anonymous pattern classes:		*.patterns.complex.anonymous
+ * 
+ */
+// Home from work event
+complexEvent HFW(){
+	as (GPS AND W_CON AND TIME)[1000]
+}
+
+/**
+ * Rules
+ * 
+ * Generated sources in packages:
+ * -rule classes:	*.rules
+ * -job classes:	*.jobs
+ * 
+ */
+rule reactHFW on HFW{
+	at.jku.ce.cep.engine.main.Sink::reactToHFWEvent()
+}

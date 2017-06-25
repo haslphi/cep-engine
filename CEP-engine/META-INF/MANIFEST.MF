@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: CEP-engine
+Bundle-SymbolicName: CEP-engine;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Export-Package: at.jku.ce.cep.engine.model,
+ at.jku.ce.cep.engine.model.events,
+ at.jku.ce.cep.engine.model.jobs,
+ at.jku.ce.cep.engine.model.patterns.atomic,
+ at.jku.ce.cep.engine.model.patterns.complex,
+ at.jku.ce.cep.engine.model.rules
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.viatra.cep.core,
+ com.google.guava
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.apache.log4j
